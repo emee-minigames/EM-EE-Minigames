@@ -21,16 +21,18 @@
       border-radius: 10px;
       width: 400px;
       box-shadow: 0 0 10px rgba(0,0,0,0.6);
+      text-align: center;
     }
 
     h2 {
-      text-align: center;
       color: #00ff99;
+      margin-bottom: 20px;
     }
 
     label {
       display: block;
       margin: 15px 0 5px;
+      text-align: left;
     }
 
     input, textarea {
@@ -42,7 +44,7 @@
       color: white;
     }
 
-    button, .back-button {
+    button {
       margin-top: 20px;
       width: 100%;
       padding: 12px;
@@ -52,12 +54,27 @@
       border: none;
       border-radius: 5px;
       cursor: pointer;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
     }
 
-    button:hover, .back-button:hover {
+    button:hover {
+      background: #218838;
+    }
+
+    .back-button {
+      margin-top: 20px;
+      display: inline-block;
+      padding: 12px 24px;
+      background: #28a745;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 16px;
+      transition: background 0.3s ease;
+    }
+
+    .back-button:hover {
       background: #218838;
     }
   </style>
@@ -79,7 +96,7 @@
       <button type="submit">Send</button>
     </form>
 
-    <!-- 🟢 Go Back Button -->
+    <!-- 🟢 Back Button -->
     <a href="home.html" class="back-button">← Go back to home</a>
   </div>
 
