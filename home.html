@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EM-EE Minigames - Home</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #121212;
+      color: white;
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .content {
+      flex: 1;
+      padding: 40px;
+      font-size: 18px;
+      overflow-y: auto;
+    }
+
+    .tabs {
+      width: 200px;
+      background: #1f1f1f;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding-top: 40px;
+    }
+
+    .tab {
+      padding: 20px;
+      color: white;
+      text-align: center;
+      border-bottom: 1px solid #333;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .tab:hover {
+      background: #333;
+    }
+
+    .tab.active {
+      background: #28a745;
+    }
+
+    h1 {
+      margin-bottom: 10px;
+    }
+
+    .about {
+      margin-top: 30px;
+    }
+
+    .about b {
+      font-size: 20px;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .about p {
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <div class="content" id="mainContent">
+    <h1 id="greeting">Yo! Check out the stuff here!</h1>
+
+    <div class="about" id="homeContent">
+      <b>ABOUT:</b>
+      <p>
+        So EM-EE Minigames is a game inspired by EPIC Minigames. This game is just made by 1 young child and this website is made by me as well ;D [HOPE YOU LIKE IT!]
+        <br><br>
+        This is the first game which is officially released — the other games are just trash and not really worked on.
+        <br><br>
+        EM-EE Minigames has 2 teams: <strong>EM-</strong> represents Fox and <strong>EE-</strong> represents Crown.
+        <br><br>
+        People can host events by making challenges of who will reach the end and get first!
+        <br><br>
+        The first minigame of EM-EE Minigames was <strong>SpinningTopTower</strong> and the second was <strong>MountainClimb</strong>.
+        <br><br>
+        There are different zones in which you can go by completing very difficult minigames. For example, you can enter the Champion Realm by completing the TryhardObby of Newbie Realm.
+        <br><br>
+        The currency of the game is called <strong>'EM-EE Bit Coins'</strong>, which can be obtained by completing different types of minigames.
+        <br><br>
+        <strong>NOTE:</strong> Not all minigames give you coins — some are just made for fun!
+        <br><br>
+        With the 'EM-EE Bit Coins', you can purchase an <strong>EM-EE Card</strong> which allows you to buy special stuff. You can also purchase tools with Bit Coins.
+        <br><br>
+        In the future, I will add FREE UGCs in exchange for money. Therefore, please support the game! Thank you and have a great day!
+      </p>
+    </div>
+  </div>
+
+  <div class="tabs">
+    <div class="tab active" onclick="switchTab('Home')">Home</div>
+    <div class="tab" onclick="switchTab('Socials')">Socials</div>
+    <div class="tab" onclick="switchTab('Links')">Links</div>
+    <div class="tab" onclick="switchTab('Feedback')">Feedback</div>
+  </div>
+
+  <script>
+    // Load nickname from localStorage
+    const nickname = localStorage.getItem("nickname") || "Guest";
+    document.getElementById("greeting").innerText = `Yo ${nickname}! Check out the stuff here!`;
+
+    function switchTab(tabName) {
+      const content = document.getElementById("mainContent");
+
+      if (tabName === "Home") {
+        content.innerHTML = `
+          <h1 id="greeting">Yo ${nickname}! Check out the stuff here!</h1>
+          <div class="about" id="homeContent">
+            <b>ABOUT:</b>
+            <p>
+              So EM-EE Minigames is a game inspired by EPIC Minigames. This game is just made by 1 young child and this website is made by me as well ;D [HOPE YOU LIKE IT!]
+              <br><br>
+              This is the first game which is officially released — the other games are just trash and not really worked on.
+              <br><br>
+              EM-EE Minigames has 2 teams: <strong>EM-</strong> represents Fox and <strong>EE-</strong> represents Crown.
+              <br><br>
+              People can host events by making challenges of who will reach the end and get first!
+              <br><br>
+              The first minigame of EM-EE Minigames was <strong>SpinningTopTower</strong> and the second was <strong>MountainClimb</strong>.
+              <br><br>
+              There are different zones in which you can go by completing very difficult minigames. For example, you can enter the Champion Realm by completing the TryhardObby of Newbie Realm.
+              <br><br>
+              The currency of the game is called <strong>'EM-EE Bit Coins'</strong>, which can be obtained by completing different types of minigames.
+              <br><br>
+              <strong>NOTE:</strong> Not all minigames give you coins — some are just made for fun!
+              <br><br>
+              With the 'EM-EE Bit Coins', you can purchase an <strong>EM-EE Card</strong> which allows you to buy special stuff. You can also purchase tools with Bit Coins.
+              <br><br>
+              In the future, I will add FREE UGCs in exchange for money. Therefore, please support the game! Thank you and have a great day!
+            </p>
+          </div>
+        `;
+      } else {
+        content.innerHTML = `
+          <h1>${tabName} Section</h1>
+          <p>More content coming soon...</p>
+        `;
+      }
+
+      // Update tab style
+      document.querySelectorAll(".tab").forEach(tab => tab.classList.remove("active"));
+      Array.from(document.querySelectorAll(".tab")).find(t => t.innerText === tabName).classList.add("active");
+    }
+  </script>
+</body>
+</html>
