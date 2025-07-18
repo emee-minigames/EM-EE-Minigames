@@ -11,6 +11,7 @@
       font-family: Arial, sans-serif;
       color: white;
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       height: 100vh;
@@ -20,10 +21,29 @@
       color: #ff00ff;
       font-size: 48px;
       text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff;
+      margin-bottom: 40px;
+    }
+
+    .back-button {
+      padding: 12px 20px;
+      background: #28a745;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+
+    .back-button:hover {
+      background: #218838;
     }
   </style>
 </head>
 <body>
+
   <h1>COMING SOON!</h1>
+  <a href="home.html" class="back-button">← Go back to home</a>
+
 </body>
 </html>
