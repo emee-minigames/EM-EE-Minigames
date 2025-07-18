@@ -7,7 +7,7 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #121212;
+      background: #2e2e2e;
       color: white;
       display: flex;
       height: 100vh;
@@ -37,6 +37,7 @@
       border-bottom: 1px solid #333;
       cursor: pointer;
       transition: background 0.3s;
+      text-decoration: none;
     }
 
     .tab:hover {
@@ -98,18 +99,22 @@
 
   <div class="tabs">
     <div class="tab active" onclick="switchTab('Home')">Home</div>
-    <div class="tab" onclick="switchTab('Socials')">Socials</div>
-    <div class="tab" onclick="switchTab('Links')">Links</div>
-    <div class="tab" onclick="switchTab('Feedback')">Feedback</div>
+    <a href="socials.html" class="tab">Socials</a>
+    <a href="links.html" class="tab">Links</a>
+    <a href="feedback.html" class="tab">Feedback</a>
   </div>
 
   <script>
-    // Load nickname from localStorage
     const nickname = localStorage.getItem("nickname") || "Guest";
     document.getElementById("greeting").innerText = `Yo ${nickname}! Check out the stuff here!`;
 
     function switchTab(tabName) {
       const content = document.getElementById("mainContent");
+
+      // Update active class only for in-page tab (Home)
+      document.querySelectorAll(".tab").forEach(tab => tab.classList.remove("active"));
+      const current = Array.from(document.querySelectorAll(".tab")).find(t => t.innerText === tabName);
+      if (current) current.classList.add("active");
 
       if (tabName === "Home") {
         content.innerHTML = `
@@ -139,16 +144,7 @@
             </p>
           </div>
         `;
-      } else {
-        content.innerHTML = `
-          <h1>${tabName} Section</h1>
-          <p>More content coming soon...</p>
-        `;
       }
-
-      // Update tab style
-      document.querySelectorAll(".tab").forEach(tab => tab.classList.remove("active"));
-      Array.from(document.querySelectorAll(".tab")).find(t => t.innerText === tabName).classList.add("active");
     }
   </script>
 </body>
