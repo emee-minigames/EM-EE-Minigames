@@ -1,2 +1,0 @@
-# EM-EE-Minigames
-Welcome to the EM-EE Minigames OFFICIAL WEBSITE [ANNOUCEMENTS,SOCIALS,GUIDES,ETC]

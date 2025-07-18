@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EM-EE Minigames Intro</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #111;
+      color: white;
+      text-align: center;
+      padding: 40px;
+    }
+
+    h1 span {
+      background: linear-gradient(90deg, pink, yellow);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    input, select {
+      padding: 10px;
+      margin: 10px;
+      border-radius: 8px;
+      border: none;
+      font-size: 16px;
+    }
+
+    .question {
+      margin: 20px 0;
+    }
+
+    button {
+      background-color: #28a745;
+      color: white;
+      padding: 12px 24px;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+  <script>
+    // Skip intro if already completed
+    if (localStorage.getItem("introComplete")) {
+      window.location.href = "home.html";
+    }
+  </script>
+
+  <h1>WELCOME TO THE OFFICIAL WEBSITE OF <span>EM-EE MINIGAMES</span></h1>
+
+  <div id="form-container" style="margin-top:40px;">
+    <div class="question">
+      <label>What should we call you?</label><br>
+      <input type="text" id="nickname" required>
+    </div>
+
+    <div class="question">
+      <label>Q1: Are you new to EM-EE Minigames?</label><br>
+      <select id="q1">
+        <option value="">--Select--</option>
+        <option>No</option>
+        <option>Yes</option>
+        <option>Kinda</option>
+      </select>
+    </div>
+
+    <div class="question">
+      <label>Q2: Are you in our Discord server?</label><br>
+      <select id="q2">
+        <option value="">--Select--</option>
+        <option>Not yet</option>
+        <option>Yes</option>
+      </select>
+    </div>
+
+    <div class="question">
+      <label>Q3: Why did you join this server?</label><br>
+      <select id="q3">
+        <option value="">--Select--</option>
+        <option>For announcements and important stuff</option>
+        <option>For socials</option>
+        <option>For fun</option>
+        <option>Other</option>
+      </select>
+    </div>
+
+    <div class="question">
+      <label>Q4: Your Roblox Username</label><br>
+      <input type="text" id="robloxUsername"><br>
+      <label>Display Name</label><br>
+      <input type="text" id="displayName">
+    </div>
+
+    <button onclick="handleSubmit()">Submit</button>
+  </div>
+
+  <script>
+    function handleSubmit() {
+      const nickname = document.getElementById("nickname").value.trim();
+      const q1 = document.getElementById("q1").value;
+      const q2 = document.getElementById("q2").value;
+      const q3 = document.getElementById("q3").value;
+      const robloxUsername = document.getElementById("robloxUsername").value.trim();
+      const displayName = document.getElementById("displayName").value.trim();
+
+      if (!nickname || !q1 || !q2 || !q3 || !robloxUsername || !displayName) {
+        alert("Please fill out all fields.");
+        return;
+      }
+
+      // Save flag to skip intro next time
+      localStorage.setItem("introComplete", "true");
+
+      // (Optional) Save other data if needed, like:
+      // localStorage.setItem("nickname", nickname);
+
+      // Redirect to homepage
+      window.location.href = "home.html";
+    }
+  </script>
+</body>
+</html>
