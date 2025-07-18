@@ -15,7 +15,7 @@
       margin: 0;
     }
 
-    form {
+    .container {
       background: #1f1f1f;
       padding: 30px;
       border-radius: 10px;
@@ -42,7 +42,7 @@
       color: white;
     }
 
-    button {
+    button, .back-button {
       margin-top: 20px;
       width: 100%;
       padding: 12px;
@@ -52,28 +52,36 @@
       border: none;
       border-radius: 5px;
       cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
     }
 
-    button:hover {
+    button:hover, .back-button:hover {
       background: #218838;
     }
   </style>
 </head>
 <body>
 
-  <form action="https://formspree.io/f/mblklajg" method="POST">
+  <div class="container">
     <h2>Send Feedback</h2>
-    <label>Your Name</label>
-    <input type="text" name="name" required>
+    <form action="https://formspree.io/f/mblklajg" method="POST">
+      <label>Your Name</label>
+      <input type="text" name="name" required>
 
-    <label>Your Email</label>
-    <input type="email" name="_replyto" required>
+      <label>Your Email</label>
+      <input type="email" name="_replyto" required>
 
-    <label>Your Message</label>
-    <textarea name="message" rows="5" required></textarea>
+      <label>Your Message</label>
+      <textarea name="message" rows="5" required></textarea>
 
-    <button type="submit">Send</button>
-  </form>
+      <button type="submit">Send</button>
+    </form>
+
+    <!-- 🟢 Go Back Button -->
+    <a href="home.html" class="back-button">← Go back to home</a>
+  </div>
 
 </body>
 </html>
